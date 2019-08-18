@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-set :stage, :production
+# set :stage, :production
 set :user, 'maralytics'
-set :branch, :master
+set :application, "mar_middle"
 # set :ssh_options, user: 'maralytics'
 # set :slack_stage, :client
-server '13.70.136.226',
-	user: 'maralytics',
-	roles: %w{web app db},
-  primary: true
+set :deploy_to,"/home/#{fetch :user}/#{fetch :application}"
+server '13.70.136.226', user: 'maralytics'
+# primary: true
+
+set :branch, :master
 
 # server-based syntax
 # ======================
