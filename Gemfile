@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.2'
+ruby '2.2.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 
-gem 'bundler', '2.0.2'
+gem 'bundler'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # gem 'sqlite3'
@@ -48,6 +48,9 @@ gem 'grape-entity'
 gem 'grape-swagger-representable'
 gem 'rest-client'
 
+gem 'ed25519', '>= 1.2', '< 2.0'
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -61,6 +64,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'capistrano', '>= 3.9.0'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-faster-assets', '~> 1.0'
+  gem 'capistrano-npm'
+  gem 'capistrano-nvm', require: false
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rvm'
+  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 end
 
 group :test do
