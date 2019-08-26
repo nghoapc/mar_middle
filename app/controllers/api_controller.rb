@@ -14,13 +14,15 @@ class ApiController < ActionController::Base
 		sale_date = data['created_at']
 		sale_value = get_price(data['register_sale_products'])
 		note = get_notes(data['register_sale_products'])
+		campaign_id_note = data['note']
 		sale_id = 'VEND-' + data['id']
 		sale_params = {
 			sale_id: sale_id,
 			domain_prefix: domain_prefix,
 			sale_date: sale_date,
 			sale_value: sale_value,
-			note: note
+			notes: note,
+			sale_note: campaign_id_note
 		}
 		TrackSaleService.new.push_sale(sale_params)
 	end
